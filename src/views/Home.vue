@@ -1,8 +1,10 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+	<div class="home">
+		<div class="flex justify-center bg-gray-800">
+			<img alt="Vue logo" src="../assets/logo.png" />
+		</div>
+		<HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+	</div>
 </template>
 
 <script lang="ts">
@@ -10,9 +12,9 @@ import { defineComponent } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld,
-  },
+	name: 'Home',
+	components: {
+		HelloWorld,
+	},
 });
 </script>
