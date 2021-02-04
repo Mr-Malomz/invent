@@ -1,8 +1,6 @@
 <template>
 	<div class="home">
-		<div class="flex justify-center bg-gray-800">
-			hello
-		</div>
+		Hello from home
 	</div>
 </template>
 
