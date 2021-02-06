@@ -26,27 +26,7 @@
 						</h1>
 						<p>Login to your account</p>
 					</div>
-					<!-- <a-form :form="form" @submit="handleSubmit">
-						<a-form-item label="Username">
-							<a-input
-								v-decorator="[
-									'username',
-									{
-										rules: [
-											{
-												required: true,
-												message:
-													'Username is required!',
-											},
-										],
-									},
-								]"
-							/>
-						</a-form-item>
-						<a-button type="primary" html-type="submit">
-							Submit
-						</a-button>
-					</a-form> -->
+					
 				</section>
 			</div>
 		</section>
