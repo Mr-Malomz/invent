@@ -16,7 +16,7 @@
 					</router-link>
 				</header>
 				<section
-					class="bg-brand-white form-sec h-full flex flex-col justify-center items-center"
+					class="bg-brand-white form-sec h-full flex flex-col justify-center items-center px-8 lg:px-16"
 				>
 					<div class="mb-14">
 						<h1
@@ -26,7 +26,10 @@
 						</h1>
 						<p>Login to your account</p>
 					</div>
-					
+					<form action="" class="w-full">
+						<Input title="email" type="email" @handleChange="handleChange"/>
+					</form>
+					<p>{{email}}</p>
 				</section>
 			</div>
 		</section>
@@ -34,13 +37,21 @@
 </template>
 
 <script lang="ts">
+import Input from '@/components/Input.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
 	name: 'Login',
-	components: {},
+	components: { Input },
+	data() {
+		return {
+			email: ''
+		}
+	},
 	methods: {
-		handleSubmit() {},
+		handleChange(email: string) {
+			this.email = email
+		},
 	},
 });
 </script>
