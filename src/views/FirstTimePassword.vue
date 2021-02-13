@@ -22,27 +22,19 @@
 						<h1
 							class="text-2xl lg:text-3xl font-bold text-brand-black"
 						>
-							Welcome back
+							Change your password
 						</h1>
-						<p class="text-brand-grey">Login to your account</p>
+						<p class="text-brand-grey">
+							We noticed you’re just logging in for the first
+							time. <br />Please change your password to continue.
+						</p>
 					</div>
 					<form action="" class="w-full">
-						<Input
-							title="email"
-							type="email"
-							@handleChange="handleChangeEmail"
-						/>
 						<InputPassword
 							title="password"
 							@handleChange="handleChangePassword"
+                            class="mb-7"
 						/>
-						<div class="flex justify-end mb-7">
-							<router-link
-								to="resetpassword"
-								class="text-sm font-semibold text-brand-blue hover:text-brand-blue-hover"
-								>Forgot password?</router-link
-							>
-						</div>
 						<Button value="Login to your account" />
 					</form>
 				</section>
@@ -53,23 +45,18 @@
 
 <script lang="ts">
 import Button from '@/components/Button.vue';
-import Input from '@/components/Input.vue';
 import InputPassword from '@/components/Password.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	name: 'Login',
-	components: { Input, InputPassword, Button },
+	name: 'FirstTimePassword',
+	components: { InputPassword, Button },
 	data() {
 		return {
-			email: '',
 			password: '',
 		};
 	},
 	methods: {
-		handleChangeEmail(email: string) {
-			this.email = email;
-		},
 		handleChangePassword(password: string) {
 			this.password = password;
 		},

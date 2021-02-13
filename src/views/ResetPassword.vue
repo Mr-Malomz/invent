@@ -22,9 +22,9 @@
 						<h1
 							class="text-2xl lg:text-3xl font-bold text-brand-black"
 						>
-							Welcome back
+							Reset password
 						</h1>
-						<p class="text-brand-grey">Login to your account</p>
+						<p class="text-brand-grey">Let’s help you recover your account</p>
 					</div>
 					<form action="" class="w-full">
 						<Input
@@ -32,18 +32,7 @@
 							type="email"
 							@handleChange="handleChangeEmail"
 						/>
-						<InputPassword
-							title="password"
-							@handleChange="handleChangePassword"
-						/>
-						<div class="flex justify-end mb-7">
-							<router-link
-								to="resetpassword"
-								class="text-sm font-semibold text-brand-blue hover:text-brand-blue-hover"
-								>Forgot password?</router-link
-							>
-						</div>
-						<Button value="Login to your account" />
+						<Button value="Reset my password" />
 					</form>
 				</section>
 			</div>
@@ -54,24 +43,19 @@
 <script lang="ts">
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
-import InputPassword from '@/components/Password.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	name: 'Login',
-	components: { Input, InputPassword, Button },
+	name: 'ResetPassword',
+	components: { Input, Button },
 	data() {
 		return {
 			email: '',
-			password: '',
 		};
 	},
 	methods: {
 		handleChangeEmail(email: string) {
 			this.email = email;
-		},
-		handleChangePassword(password: string) {
-			this.password = password;
 		},
 	},
 });
