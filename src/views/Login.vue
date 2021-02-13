@@ -27,9 +27,24 @@
 						<p>Login to your account</p>
 					</div>
 					<form action="" class="w-full">
-						<Input title="email" type="email" @handleChange="handleChange"/>
+						<Input
+							title="email"
+							type="email"
+							@handleChange="handleChangeEmail"
+						/>
+						<InputPassword
+							title="password"
+							@handleChange="handleChangePassword"
+						/>
+						<div class="flex justify-end mb-7">
+							<router-link
+								to=""
+								class="text-sm font-semibold text-brand-blue hover:text-brand-blue-hover"
+								>Forgot password?</router-link
+							>
+						</div>
+						<Button value="Login to your account" />
 					</form>
-					<p>{{email}}</p>
 				</section>
 			</div>
 		</section>
@@ -37,20 +52,26 @@
 </template>
 
 <script lang="ts">
+import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
+import InputPassword from '@/components/Password.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
 	name: 'Login',
-	components: { Input },
+	components: { Input, InputPassword, Button },
 	data() {
 		return {
-			email: ''
-		}
+			email: '',
+			password: '',
+		};
 	},
 	methods: {
-		handleChange(email: string) {
-			this.email = email
+		handleChangeEmail(email: string) {
+			this.email = email;
+		},
+		handleChangePassword(password: string) {
+			this.password = password;
 		},
 	},
 });
