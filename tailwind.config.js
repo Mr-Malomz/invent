@@ -9,12 +9,13 @@ module.exports = {
 				'brand-grey': '#5E616A',
 				'brand-white': '#FDFDFF',
 				'brand-blue-hover': '#0A277A',
+				'brand-bg': '#E9E8F5',
 			},
 		},
 		fontFamily: {
 			display: ['Open Sans', 'sans-serif'],
 			body: ['Open Sans', 'sans-serif'],
-		}
+		},
 	},
 	variants: {
 		extend: {},

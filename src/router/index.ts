@@ -25,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'ChangePassword',
     component: () => import('../views/ChangePassword.vue')
   },
+  {
+    path: '/auth/dashboard',
+    name: 'Layout',
+    component: () => import('../components/Layout.vue')
+  },
 ]
 
 const router = createRouter({
