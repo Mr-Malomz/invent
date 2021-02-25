@@ -21,7 +21,7 @@
 				to="/auth/stock"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>
-				<stock-icon class="mr-4" />
+				<stock-icon class="mr-4" color="#50505A"/>
 				<span class="font-semibold capitalize text-sm">stock</span>
 			</router-link>
 			<router-link
@@ -39,7 +39,7 @@
 				to="/auth/warehouse"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>
-				<warehouse-icon class="mr-4" />
+				<warehouse-icon class="mr-4" color="#50505A"/>
 				<span class="font-semibold capitalize text-sm">warehouse</span>
 			</router-link>
 			<router-link
@@ -47,7 +47,7 @@
 				to="/auth/manage-inv"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>
-				<user-icon class="mr-4" />
+				<user-icon class="mr-4" color="#50505A"/>
 				<span class="font-semibold capitalize text-sm">users</span>
 			</router-link>
 			<router-link

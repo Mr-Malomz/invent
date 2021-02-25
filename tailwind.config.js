@@ -10,6 +10,7 @@ module.exports = {
 				'brand-white': '#FDFDFF',
 				'brand-blue-hover': '#0A277A',
 				'brand-bg': '#E9E8F5',
+				'brand-cancel': '#B4BBD9',
 			},
 		},
 		fontFamily: {
