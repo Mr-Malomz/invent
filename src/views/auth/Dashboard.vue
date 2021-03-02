@@ -56,9 +56,9 @@
 				to=""
 				class="mr-7"
 			></outline-link>
-			<fill-link text="Request an item" to=""
-				><plus-icon color="#fdfdfd" class="mr-2"
-			/></fill-link>
+			<fill-link text="Request an item" to="">
+				<plus-icon color="#fdfdfd" class="mr-2" />
+			</fill-link>
 		</section>
 		<section class="grid grid-cols-1 lg:grid-cols-2 gap-14 mb-7">
 			<card-constraint
@@ -117,10 +117,10 @@
 		<section>
 			<card-full
 				title="stocks"
-				to="#"
+				to="stock"
 				:headers="[
 					{ id: 1, title: 'item code' },
-					{ id: 2, title: 'ritem description' },
+					{ id: 2, title: 'item description' },
 					{ id: 3, title: 'quantity' },
 					{ id: 4, title: 'UOM' },
 					{ id: 5, title: 'warehouse no' },
@@ -150,7 +150,7 @@
 	</layout>
 </template>
 
-<script>
+<script lang="ts">
 import PlusIcon from '@/assets/svg/PlusIcon.vue';
 import StockIcon from '@/assets/svg/StockIcon.vue';
 import UserIcon from '@/assets/svg/UserIcon.vue';
