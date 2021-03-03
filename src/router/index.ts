@@ -38,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'Stocks',
 		component: () => import('../views/auth/Stocks.vue'),
 	},
+	{
+		path: '/auth/add-stock',
+		name: 'AddStock',
+		component: () => import('../views/auth/AddStock.vue'),
+	},
 ];
 
 const router = createRouter({

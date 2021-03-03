@@ -7,7 +7,7 @@
 			<outline-link text="Upload CSV" to="" class="mr-7">
 				<upload-icon class="mr-2" />
 			</outline-link>
-			<fill-link text="Add new item" to="">
+			<fill-link text="Add new item" to="add-stock">
 				<plus-icon color="#fdfdfd" class="mr-2" />
 			</fill-link>
 		</section>

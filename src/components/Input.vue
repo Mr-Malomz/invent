@@ -12,6 +12,7 @@
 			@keyup="onKeyUp"
 			v-model="value"
 			required
+			:maxlength="length"
 		/>
 		<span class="text-xs text-red-500" v-if="isError"
 			>Please fill in your {{ title }}</span
@@ -23,7 +24,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	props: { title: String, type: String },
+	props: { title: String, type: String, length: Number },
 	data() {
 		return {
 			value: '',
