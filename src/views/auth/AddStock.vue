@@ -52,6 +52,26 @@
 							<option value=""></option>
 						</select>
 					</fieldset>
+					<fieldset class="mb-7">
+						<label
+							for="uom"
+							class="block mb-1 text-sm font-normal capitalize"
+						>
+							Unit of measurement
+						</label>
+						<select
+							class="border w-full h-10 px-4 rounded focus:border-brand-blue"
+							:class="
+								isError
+									? 'border-red-500'
+									: 'border-brand-grey '
+							"
+							id="uom"
+							required
+						>
+							<option value=""></option>
+						</select>
+					</fieldset>
 					<Button value="Add new stock" />
 				</form>
 			</div>

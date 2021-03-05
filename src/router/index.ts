@@ -43,6 +43,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'AddStock',
 		component: () => import('../views/auth/AddStock.vue'),
 	},
+	{
+		path: '/auth/stock-upload',
+		name: 'StockUpload',
+		component: () => import('../views/auth/StockUpload.vue'),
+	},
 ];
 
 const router = createRouter({
