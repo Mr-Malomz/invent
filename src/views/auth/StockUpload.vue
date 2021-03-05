@@ -35,7 +35,7 @@
 						</label>
 						<button
 							class="flex justify-center items-center w-56 h-8 bg-brand-white capitalize text-brand-grey text-sm border border-gray-400"
-                            
+                            disabled
 						>
 							start upload
 						</button>

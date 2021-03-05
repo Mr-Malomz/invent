@@ -30,7 +30,7 @@
 				<span class="font-semibold capitalize text-sm">stock</span>
 			</router-link>
 			<router-link
-				active-class="active-nav svg-focus"
+				active-class="active-nav svg-focus svg-stroke"
 				to="/auth/manage-inv"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>
@@ -49,7 +49,7 @@
 			</router-link>
 			<router-link
 				active-class="active-nav svg-focus"
-				to="/auth/manage-inv"
+				to="/auth/users"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>
 				<user-icon class="mr-4" color="#50505A" />
@@ -57,7 +57,7 @@
 			</router-link>
 			<router-link
 				active-class="active-nav svg-focus"
-				to="/auth/manage-inv"
+				to="/auth/settings"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>
 				<settings-icon class="mr-4" />
@@ -126,6 +126,14 @@ export default defineComponent({
 	:deep svg {
 		path {
 			fill: #fdfdff;
+		}
+	}
+}
+
+.svg-stroke {
+	:deep svg {
+		path {
+			stroke: #fdfdff;
 		}
 	}
 }
