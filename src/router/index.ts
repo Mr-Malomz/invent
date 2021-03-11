@@ -53,6 +53,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'Inventory',
 		component: () => import('../views/auth/Inventory.vue'),
 	},
+	{
+		path: '/auth/goodreceipt',
+		name: 'Inventory',
+		component: () => import('../views/auth/GoodReceipt.vue'),
+	},
 ];
 
 const router = createRouter({
