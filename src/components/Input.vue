@@ -1,8 +1,11 @@
 <template>
   <div class="w-full" :class="showTitle ? 'mb-7' : ''">
-    <label :for="title" v-if="showTitle" class="block mb-1 text-sm font-normal capitalize">{{
-      title
-    }}</label>
+    <label
+      :for="title"
+      v-if="showTitle"
+      class="block mb-1 text-sm font-normal capitalize"
+      >{{ title }}</label
+    >
     <input
       :type="type"
       :class="isError ? 'border-red-500' : 'border-brand-grey '"
@@ -33,6 +36,7 @@ export default defineComponent({
     length: Number,
     showErrorMsg: { type: Boolean, default: true },
     showTitle: { type: Boolean, default: true },
+    props: Event,
   },
   data() {
     return {

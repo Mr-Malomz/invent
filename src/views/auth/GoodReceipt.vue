@@ -19,10 +19,14 @@
           { id: 4, title: '' },
         ]"
       >
-        <tr class="border-brand-cancel border-b hover:bg-gray-100 h-12">
+        <tr
+          class="border-brand-cancel border-b hover:bg-gray-100 h-12"
+          v-for="(input, i) in inputs"
+          :key="i"
+        >
           <td class="pl-4 text-sm text-brand-grey">
             <div class="w-28">
-              <input-button />
+              <input-button v-model="input.item" />
             </div>
           </td>
           <td class="pl-4 text-sm text-brand-grey">
@@ -31,6 +35,7 @@
               type="text"
               :showErrorMsg="false"
               :showTitle="false"
+              v-model="input.description"
             />
           </td>
           <td class="pl-4 text-sm text-brand-grey">
@@ -102,11 +107,26 @@ export default defineComponent({
     PlusIcon,
   },
 
-  data: () => ({}),
+  data: () => ({
+    inputs: [
+      {
+        item: "",
+        description: "",
+        quantity: "",
+        warehouse: "",
+        bin: "",
+      },
+    ],
+  }),
 
   methods: {
     handleSubmit(e: Event) {
       e.preventDefault();
+    },
+    handleChange(text: string) {
+      for (let index = 0; index < this.inputs.length; index++) {
+        this.inputs[index].item = text;
+      }
     },
   },
 });
@@ -114,9 +134,6 @@ export default defineComponent({
 
 <style>
 select {
-  /* -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; */
   padding: 10px;
 }
 </style>

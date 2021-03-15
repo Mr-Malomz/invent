@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-10 border px-4 rounded flex items-center cursor-pointer"
+    class="w-full h-10 border px-4 rounded flex items-center cursor-pointer border-brand-grey"
     role="button"
   >
     <input
@@ -23,7 +23,7 @@ export default defineComponent({
   components: { InputTrigger },
   data() {
     return {
-      value: "",
+      value: "123",
       isError: false,
     };
   },
