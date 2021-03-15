@@ -4,11 +4,11 @@
       good receipt
     </h1>
     <section class="flex justify-end items-center mb-7">
-			<outline-link text="Add Item" to="" class="mr-7">
-				<plus-icon color="#1E3A8A" class="mr-2" />
-			</outline-link>
-		</section>
-    <form class="h-full">
+      <outline-link text="Add Item" to="" class="mr-7">
+        <plus-icon color="#1E3A8A" class="mr-2" />
+      </outline-link>
+    </section>
+    <form class="h-full" @submit="handleSubmit">
       <table-generic
         :headers="[
           { id: 1, title: 'item' },
@@ -48,7 +48,8 @@
               id="uom"
               required
             >
-              <option value=""></option>
+              <option value="">h</option>
+              <option value="">h</option>
             </select>
           </td>
           <td class="pl-4 text-sm text-brand-grey">
@@ -58,12 +59,13 @@
               id="uom"
               required
             >
-              <option value=""></option>
+              <option value="">t</option>
+              <option value="">t</option>
             </select>
           </td>
           <td class="pl-4 text-sm text-brand-grey">
             <div class="w-28 flex justify-center">
-              <delete-icon class="cursor-pointer"/>
+              <delete-icon class="cursor-pointer" />
             </div>
           </td>
         </tr>
@@ -98,6 +100,14 @@ export default defineComponent({
     Button,
     OutlineLink,
     PlusIcon,
+  },
+
+  data: () => ({}),
+
+  methods: {
+    handleSubmit(e: Event) {
+      e.preventDefault();
+    },
   },
 });
 </script>
