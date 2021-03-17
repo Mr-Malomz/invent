@@ -11,9 +11,9 @@
       :class="isError ? 'border-red-500' : 'border-brand-grey '"
       class="border w-full h-10 px-4 rounded focus:border-brand-blue"
       :id="title"
-      @change="handleChange"
+      @input="$emit('update:modelValue', $event.target.value)"
       @keyup="onKeyUp"
-      v-model="value"
+      :value="modelValue"
       required
       :maxlength="length"
     />
@@ -36,25 +36,24 @@ export default defineComponent({
     length: Number,
     showErrorMsg: { type: Boolean, default: true },
     showTitle: { type: Boolean, default: true },
-    props: Event,
+    modelValue: {
+      type: [String, Number],
+      default: "",
+    },
   },
+
   data() {
     return {
-      value: "",
       isError: false,
     };
   },
   methods: {
-    handleChange() {
-      this.$emit("handleChange", this.value);
-    },
-
     onKeyUp() {
       const regex = /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/;
-      if (!this.value) {
+      if (!this.modelValue) {
         this.isError = true;
       } else {
-        if (this.type === "email" && !regex.test(this.value)) {
+        if (this.type === "email" && !regex.test(this.modelValue as string)) {
           this.isError = true;
         } else {
           this.isError = false;
