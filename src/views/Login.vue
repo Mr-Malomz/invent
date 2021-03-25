@@ -24,7 +24,7 @@
             </h1>
             <p class="text-brand-grey">Login to your account</p>
           </div>
-          <form action="" class="w-full" @submit="handleSubmit">
+          <form action="" class="w-full" @submit.prevent="handleSubmit">
             <Input title="email" type="email" v-model="email" />
             <InputPassword title="password" v-model="password" />
             <div class="flex justify-end mb-7">
@@ -58,15 +58,7 @@ export default defineComponent({
     };
   },
   methods: {
-    handleChangeEmail(email: string) {
-      this.email = email;
-    },
-    handleChangePassword(password: string) {
-      this.password = password;
-    },
-
-    handleSubmit(e: Event) {
-      e.preventDefault();
+    handleSubmit() {
       console.log(this.$data);
     },
   },
