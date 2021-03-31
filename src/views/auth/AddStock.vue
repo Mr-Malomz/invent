@@ -13,69 +13,57 @@
             v-model="item"
           />
           <input-field title="quantity" type="number" v-model="quantity" />
-          <fieldset class="mb-7">
-            <label for="uom" class="block mb-1 text-sm font-normal capitalize">
-              unit of measurement
-            </label>
-            <select
-              class="border w-full h-10 px-4 rounded focus:border-brand-blue border-brand-grey"
-              id="uom"
-              required
-              v-model="unit_of_m"
-            >
-              <option></option>
-              <option
-                v-for="option in options"
-                :key="option.id"
-                :value="option.id"
-              >
-                {{ option.desc }}
-              </option>
-            </select>
-          </fieldset>
-          <fieldset class="mb-7">
-            <label
-              for="warehouse"
-              class="block mb-1 text-sm font-normal capitalize"
-            >
-              warehouse
-            </label>
-            <select
-              class="border w-full h-10 px-4 rounded focus:border-brand-blue border-brand-grey"
-              id="warehouse"
-              required
-              v-model="warehouse"
-            >
-              <option></option>
-              <option
-                v-for="option in options"
-                :key="option.id"
-                :value="option.id"
-              >
-                {{ option.desc }}
-              </option>
-            </select>
-          </fieldset>
-          <fieldset class="mb-7">
-            <label for="bin" class="block mb-1 text-sm font-normal capitalize">
-              bin
-            </label>
-            <select
-              class="border w-full h-10 px-4 rounded focus:border-brand-blue border-brand-grey"
-              id="bin"
-              required
-              v-model="bin"
-            >
-              <option></option>
-              <option
-                v-for="option in options"
-                :key="option.id"
-                :value="option.id"
-              >
-                {{ option.desc }}
-              </option>
-            </select>
-          </fieldset>
+          <select-input
+            :options="[
+              { id: 1, desc: 'item code' },
+              { id: 2, desc: 'item description' },
+              { id: 3, desc: 'quantity' },
+              { id: 4, desc: 'UOM' },
+              { id: 5, desc: 'warehouse no' },
+              { id: 6, desc: 'bin no' },
+            ]"
+            title="unit of measurement"
+            id="uom"
+            @onSelect="
+              (selected) => {
+                unit_of_m = selected;
+              }
+            "
+          />
+          <select-input
+            :options="[
+              { id: 1, desc: 'item code' },
+              { id: 2, desc: 'item description' },
+              { id: 3, desc: 'quantity' },
+              { id: 4, desc: 'UOM' },
+              { id: 5, desc: 'warehouse no' },
+              { id: 6, desc: 'bin no' },
+            ]"
+            title="warehouse"
+            id="warehouse"
+            @onSelect="
+              (selected) => {
+                warehouse = selected;
+              }
+            "
+          />
+          <select-input
+            :options="[
+              { id: 1, desc: 'item code' },
+              { id: 2, desc: 'item description' },
+              { id: 3, desc: 'quantity' },
+              { id: 4, desc: 'UOM' },
+              { id: 5, desc: 'warehouse no' },
+              { id: 6, desc: 'bin no' },
+            ]"
+            title="bin"
+            id="bin"
+            @onSelect="
+              (selected) => {
+                bin = selected;
+              }
+            "
+          />
           <Button value="Add new stock" />
         </form>
       </div>
@@ -87,10 +75,11 @@
 import Button from "@/components/Button.vue";
 import InputField from "@/components/Input.vue";
 import Layout from "@/components/Layout.vue";
+import SelectInput from "@/components/SelectInput.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  components: { Layout, InputField, Button },
+  components: { Layout, InputField, Button, SelectInput },
   data: () => ({
     item: "",
     quantity: "",
@@ -105,6 +94,10 @@ export default defineComponent({
   methods: {
     handleSubmit() {
       console.log(this.$data);
+    },
+
+    onSelect(selected: number) {
+      console.log(selected);
     },
   },
 });
