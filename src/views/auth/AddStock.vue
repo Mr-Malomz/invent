@@ -86,10 +86,6 @@ export default defineComponent({
     unit_of_m: "",
     warehouse: "",
     bin: "",
-    options: [
-      { id: 1, desc: "item" },
-      { id: 2, desc: "description" },
-    ],
   }),
   methods: {
     handleSubmit() {

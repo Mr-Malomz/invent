@@ -4,7 +4,7 @@
       good receipt
     </h1>
     <section class="flex justify-end items-center mb-7">
-      <outline-link text="Add Item" to="" class="mr-7">
+      <outline-link text="Add Item" to="#" class="mr-7" @click="addToForm">
         <plus-icon color="#1E3A8A" class="mr-2" />
       </outline-link>
     </section>
@@ -44,33 +44,36 @@
               type="number"
               :showErrorMsg="false"
               :showTitle="false"
+              v-model="input.quantity"
             />
           </td>
           <td class="pl-4 text-sm text-brand-grey">
             <select
               class="border w-full h-10 px-4 rounded focus:border-brand-blue"
               :class="isError ? 'border-red-500' : 'border-brand-grey '"
-              id="uom"
+              :id="input.warehouse"
               required
+              v-model="input.warehouse"
             >
-              <option value="">h</option>
-              <option value="">h</option>
+              <option value="1">h</option>
+              <option value="2">h</option>
             </select>
           </td>
           <td class="pl-4 text-sm text-brand-grey">
             <select
               class="border w-full h-10 px-4 rounded focus:border-brand-blue"
               :class="isError ? 'border-red-500' : 'border-brand-grey '"
-              id="uom"
+              :id="input.bin"
               required
+              v-model="input.bin"
             >
-              <option value="">t</option>
-              <option value="">t</option>
+              <option value="1">t</option>
+              <option value="2">t</option>
             </select>
           </td>
           <td class="pl-4 text-sm text-brand-grey">
             <div class="w-28 flex justify-center">
-              <delete-icon class="cursor-pointer" />
+              <delete-icon class="cursor-pointer" @click="removeForm(i)"/>
             </div>
           </td>
         </tr>
@@ -122,11 +125,24 @@ export default defineComponent({
   methods: {
     handleSubmit(e: Event) {
       e.preventDefault();
+      console.log(this.inputs);
     },
     handleChange(text: string) {
       for (let index = 0; index < this.inputs.length; index++) {
         this.inputs[index].item = text;
       }
+    },
+    addToForm() {
+      this.inputs.push({
+        item: "",
+        description: "",
+        quantity: "",
+        warehouse: "",
+        bin: "",
+      });
+    },
+    removeForm(id: number) {
+      this.inputs = this.inputs.filter((input, i) => i !== id);
     },
   },
 });
