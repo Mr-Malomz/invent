@@ -36,7 +36,6 @@ export default defineComponent({
   props: {
     isModal: Boolean,
     handleModalClose: Function,
-    handleModalOpen: Function,
   },
 
   methods: {

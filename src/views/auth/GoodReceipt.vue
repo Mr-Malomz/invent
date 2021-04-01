@@ -85,13 +85,7 @@
       </div>
     </form>
   </layout>
-  <modal
-    :isModal="isModal"
-    :handleModalClose="handleModalClose"
-    :handleModalOpen="handleModalOpen"
-  >
-    hello
-  </modal>
+  <modal :isModal="isModal" :handleModalClose="handleModalClose"> hello </modal>
 </template>
 
 <script lang='ts'>
@@ -129,7 +123,7 @@ export default defineComponent({
         bin: "",
       },
     ],
-    isModal: true,
+    isModal: false,
   }),
 
   methods: {
