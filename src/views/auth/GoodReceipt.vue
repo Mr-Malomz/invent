@@ -73,7 +73,7 @@
           </td>
           <td class="pl-4 text-sm text-brand-grey">
             <div class="w-28 flex justify-center">
-              <delete-icon class="cursor-pointer" @click="removeForm(i)"/>
+              <delete-icon class="cursor-pointer" @click="removeForm(i)" />
             </div>
           </td>
         </tr>
@@ -85,6 +85,13 @@
       </div>
     </form>
   </layout>
+  <modal
+    :isModal="isModal"
+    :handleModalClose="handleModalClose"
+    :handleModalOpen="handleModalOpen"
+  >
+    hello
+  </modal>
 </template>
 
 <script lang='ts'>
@@ -94,6 +101,7 @@ import Button from "@/components/Button.vue";
 import InputField from "@/components/Input.vue";
 import InputButton from "@/components/InputButton.vue";
 import Layout from "@/components/Layout.vue";
+import Modal from "@/components/Modal.vue";
 import OutlineLink from "@/components/OutlineLink.vue";
 import TableGeneric from "@/components/TableGeneric.vue";
 import { defineComponent } from "vue";
@@ -108,6 +116,7 @@ export default defineComponent({
     Button,
     OutlineLink,
     PlusIcon,
+    Modal,
   },
 
   data: () => ({
@@ -120,6 +129,7 @@ export default defineComponent({
         bin: "",
       },
     ],
+    isModal: true,
   }),
 
   methods: {
@@ -127,11 +137,13 @@ export default defineComponent({
       e.preventDefault();
       console.log(this.inputs);
     },
+
     handleChange(text: string) {
       for (let index = 0; index < this.inputs.length; index++) {
         this.inputs[index].item = text;
       }
     },
+
     addToForm() {
       this.inputs.push({
         item: "",
@@ -141,8 +153,17 @@ export default defineComponent({
         bin: "",
       });
     },
+
     removeForm(id: number) {
       this.inputs = this.inputs.filter((input, i) => i !== id);
+    },
+
+    handleModalClose() {
+      this.isModal = false;
+    },
+
+    handleModalOpen() {
+      this.isModal = true;
     },
   },
 });
