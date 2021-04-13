@@ -25,8 +25,8 @@
           :key="i"
         >
           <td class="pl-4 text-sm text-brand-grey">
-            <div class="w-28">
-              <input-button v-model="input.item" />
+            <div class="w-28" >
+              <input-button v-model="input.item" @click="handleModalOpen()"/>
             </div>
           </td>
           <td class="pl-4 text-sm text-brand-grey">
@@ -85,12 +85,65 @@
       </div>
     </form>
   </layout>
-  <modal :isModal="isModal" :handleModalClose="handleModalClose"> hello </modal>
+  <modal :isModal="isModal" :handleModalClose="handleModalClose">
+    <form
+      class="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8"
+    >
+      <div class="w-full lg:w-8/12">
+        <input-field title="item description" type="text" v-model="search" />
+      </div>
+      <div class="">
+        <button
+          class="h-11 w-52 flex justify-center items-center bg-brand-blue hover:bg-brand-blue-hover rounded transition-all ease-in-out duration-75"
+        >
+          <search-icon class="mr-2" />
+          <span class="text-sm font-bold text-brand-white capitalize"
+            >search</span
+          >
+        </button>
+      </div>
+    </form>
+    <div class="w-full h-44 max-h-44">
+      <div class="w-full h-full overflow-auto">
+        <table-generic
+          :headers="[
+            { id: 1, title: 'item code' },
+            { id: 2, title: 'item description' },
+            { id: 3, title: '' },
+          ]"
+        >
+          <tr class="border-brand-cancel border-b hover:bg-gray-100 h-12">
+            <td class="pl-4 text-sm text-brand-grey">IR001</td>
+            <td class="pl-4 text-sm text-brand-grey">Water cooler</td>
+            <td class="pl-4 text-sm text-brand-grey">
+              <button
+                class="font-bold text-brand-blue capitalize hover:text-brand-blue-hover"
+              >
+                select
+              </button>
+            </td>
+          </tr>
+          <tr class="border-brand-cancel border-b hover:bg-gray-100 h-12">
+            <td class="pl-4 text-sm text-brand-grey">IR001</td>
+            <td class="pl-4 text-sm text-brand-grey">Water cooler</td>
+            <td class="pl-4 text-sm text-brand-grey">
+              <button
+                class="font-bold text-brand-blue capitalize hover:text-brand-blue-hover"
+              >
+                select
+              </button>
+            </td>
+          </tr>
+        </table-generic>
+      </div>
+    </div>
+  </modal>
 </template>
 
 <script lang='ts'>
 import DeleteIcon from "@/assets/svg/DeleteIcon.vue";
 import PlusIcon from "@/assets/svg/PlusIcon.vue";
+import SearchIcon from "@/assets/svg/SearchIcon.vue";
 import Button from "@/components/Button.vue";
 import InputField from "@/components/Input.vue";
 import InputButton from "@/components/InputButton.vue";
@@ -111,6 +164,7 @@ export default defineComponent({
     OutlineLink,
     PlusIcon,
     Modal,
+    SearchIcon,
   },
 
   data: () => ({
@@ -124,6 +178,7 @@ export default defineComponent({
       },
     ],
     isModal: false,
+    search: "",
   }),
 
   methods: {

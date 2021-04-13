@@ -23,7 +23,7 @@ export default defineComponent({
   components: { InputTrigger },
   data() {
     return {
-      value: "123",
+      value: "",
       isError: false,
     };
   },
