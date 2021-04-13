@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Login from '../views/Login.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Login from '../views/Login.vue';
 
 const routes: Array<RouteRecordRaw> = [
 	{
@@ -54,15 +54,20 @@ const routes: Array<RouteRecordRaw> = [
 		component: () => import('../views/auth/Inventory.vue'),
 	},
 	{
+		path: '/auth/itemrequest',
+		name: 'ItemRequest',
+		component: () => import('../views/auth/ItemRequest.vue'),
+	},
+	{
 		path: '/auth/goodreceipt',
-		name: 'Inventory',
+		name: 'GoodReceipt',
 		component: () => import('../views/auth/GoodReceipt.vue'),
 	},
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+	history: createWebHistory(process.env.BASE_URL),
+	routes,
+});
 
-export default router
+export default router;

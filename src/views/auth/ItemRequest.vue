@@ -1,7 +1,7 @@
 <template>
   <layout>
     <h1 class="text-xl font-bold text-brand-black capitalize mb-7">
-      good receipt
+      item request
     </h1>
     <section class="flex justify-end items-center mb-7">
       <outline-link text="Add Item" to="#" class="mr-7" @click="addToForm">
@@ -80,7 +80,7 @@
       </table-generic>
       <div class="flex justify-center mt-14">
         <div class="w-5/6 lg:w-1/3">
-          <Button value="Post" />
+          <Button value="Create" />
         </div>
       </div>
     </form>
