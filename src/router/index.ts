@@ -59,6 +59,21 @@ const routes: Array<RouteRecordRaw> = [
 		component: () => import('../views/auth/ItemRequest.vue'),
 	},
 	{
+		path: '/auth/edititemrequest',
+		name: 'EditItemRequest',
+		component: () => import('../views/auth/EditItemRequest.vue'),
+	},
+	{
+		path: '/auth/goodissue',
+		name: 'GoodIssue',
+		component: () => import('../views/auth/GoodIssue.vue'),
+	},
+	{
+		path: '/auth/goodissuepost',
+		name: 'GoodIssuePost',
+		component: () => import('../views/auth/GoodIssuePost.vue'),
+	},
+	{
 		path: '/auth/goodreceipt',
 		name: 'GoodReceipt',
 		component: () => import('../views/auth/GoodReceipt.vue'),

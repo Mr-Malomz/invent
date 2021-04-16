@@ -1,6 +1,7 @@
 <template>
 	<button
-		class="h-10 flex justify-center items-center w-full bg-brand-blue text-brand-white text-sm font-bold rounded transition-all ease-in-out duration-75 hover:bg-brand-blue-hover"
+		class="h-10 flex justify-center items-center w-full text-sm font-bold rounded transition-all ease-in-out duration-75"
+		:class="color"
 	>
 		{{ value }}
 	</button>
@@ -8,9 +9,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-export default {
-	props: ['value'],
-};
+export default defineComponent({
+	props: {
+		value: String,
+		color: {default: 'bg-brand-blue text-brand-white hover:bg-brand-blue-hover'}
+	},
+});
 </script>
 
 <style></style>
