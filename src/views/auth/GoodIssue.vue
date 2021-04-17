@@ -13,7 +13,7 @@
             <input-button
               v-model="item"
               @click="handleModalOpen()"
-              class="mb-7"
+              cfieldslass="mb-7"
             />
           </fieldset>
           <input-field title="quantity" type="number" v-model="quantity" />

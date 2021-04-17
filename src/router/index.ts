@@ -69,6 +69,16 @@ const routes: Array<RouteRecordRaw> = [
 		component: () => import('../views/auth/GoodIssue.vue'),
 	},
 	{
+		path: '/auth/warehouse',
+		name: 'Warehouse',
+		component: () => import('../views/auth/Warehouse.vue'),
+	},
+	{
+		path: '/auth/warehouseedit',
+		name: 'WarehouseEdit',
+		component: () => import('../views/auth/WarehouseEdit.vue'),
+	},
+	{
 		path: '/auth/goodissuepost',
 		name: 'GoodIssuePost',
 		component: () => import('../views/auth/GoodIssuePost.vue'),
