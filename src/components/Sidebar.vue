@@ -48,7 +48,7 @@
 				<span class="font-semibold capitalize text-sm">warehouse</span>
 			</router-link>
 			<router-link
-				active-class="active-nav svg-focus"
+				active-class="active-nav svg-focus svg-stroke"
 				to="/auth/users"
 				class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
 			>

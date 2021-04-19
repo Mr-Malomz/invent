@@ -13,6 +13,8 @@ module.exports = {
 				'brand-cancel': '#B4BBD9',
 				'brand-status-done': '#E3FCEC',
 				'brand-status-submitted': '#FCEBEA',
+				'brand-status-active': '#B3D7C8',
+				'brand-status-deactivated': '#CCBDC6',
 			},
 		},
 		fontFamily: {
