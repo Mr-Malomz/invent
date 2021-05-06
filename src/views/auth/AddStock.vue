@@ -64,6 +64,7 @@
               }
             "
           />
+          <custom-select title="permissions"/>
           <Button value="Add new stock" />
         </form>
       </div>
@@ -73,13 +74,14 @@
 
 <script lang="ts">
 import Button from "@/components/Button.vue";
+import CustomSelect from "@/components/CustomSelect.vue";
 import InputField from "@/components/Input.vue";
 import Layout from "@/components/Layout.vue";
 import SelectInput from "@/components/SelectInput.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  components: { Layout, InputField, Button, SelectInput },
+  components: { Layout, InputField, Button, SelectInput, CustomSelect },
   data: () => ({
     item: "",
     quantity: "",
