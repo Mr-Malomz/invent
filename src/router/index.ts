@@ -98,6 +98,16 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'CreateUser',
 		component: () => import('../views/auth/CreateUser.vue'),
 	},
+	{
+		path: '/auth/edituser',
+		name: 'EditUser',
+		component: () => import('../views/auth/EditUser.vue'),
+	},
+	{
+		path: '/auth/manageuser',
+		name: 'ManageUser',
+		component: () => import('../views/auth/ManageUser.vue'),
+	},
 ];
 
 const router = createRouter({

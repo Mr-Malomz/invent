@@ -1,7 +1,7 @@
 <template>
   <div
     class="mb-7 relative close-drop"
-    @click="() => {showOptions = true;}"
+    @click="handleShowOption"
     @focusout="handleFocusOut"
     tabindex="0"
   >
@@ -57,7 +57,8 @@ export default defineComponent({
   components: { TinyMenuClose },
   props: {
     title: String,
-    options: Array as PropType<Array<OptionProps>>
+    options: Array as PropType<Array<OptionProps>>,
+    disabled: Boolean
   },
   data() {
     return {
@@ -85,11 +86,14 @@ export default defineComponent({
     handleShowOption(e: Event) {
       console.log(e);
       const target = e.target as HTMLDivElement;
-      this.showOptions = true;
+      this.showOptions = this.disabled ? false : true;
       target.classList.add(this.showOptions ? "border-2" : "");
     },
 
     removeSelected(id: number) {
+      if (this.disabled) {
+        return;
+      }
       let selectedItem = this.selected.find(option => option.id == id);
       this.selected = this.selected.filter(option => option.id !== id);
       this.optionsArray = [...this.optionsArray, selectedItem!];
@@ -97,11 +101,11 @@ export default defineComponent({
 
     handleFocusOut(e: Event) {
       this.showOptions = false;
-      this.$emit('selectedPicked', this.selected);
+      this.$emit("selectedPicked", this.selected);
     }
   },
 
-  mounted(){
+  mounted() {
     this.optionsArray = this.options!;
   }
 });

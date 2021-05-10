@@ -16,6 +16,7 @@
       :value="modelValue"
       required
       :maxlength="length"
+      :disabled="disabled"
     />
     <span
       class="text-xs text-red-500"
@@ -40,6 +41,7 @@ export default defineComponent({
       type: [String, Number],
       default: "",
     },
+    disabled: Boolean,
   },
 
   data() {
