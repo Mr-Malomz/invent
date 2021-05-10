@@ -93,6 +93,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'GoodReceipt',
 		component: () => import('../views/auth/GoodReceipt.vue'),
 	},
+	{
+		path: '/auth/createuser',
+		name: 'CreateUser',
+		component: () => import('../views/auth/CreateUser.vue'),
+	},
 ];
 
 const router = createRouter({

@@ -1,5 +1,10 @@
 <template>
-  <div class="mb-7 relative close-drop" @click="() => {showOptions = true;}">
+  <div
+    class="mb-7 relative close-drop"
+    @click="() => {showOptions = true;}"
+    @focusout="handleFocusOut"
+    tabindex="0"
+  >
     <label :for="title" class="block mb-1 text-sm font-normal capitalize">
       {{
       title
@@ -18,20 +23,19 @@
         <span class="inline-block mr-4">{{select.desc}}</span>
         <tiny-menu-close class="cursor-pointer" @click="removeSelected(select.id)" />
       </div>
-      <input type="search" name id class="w-full outline-none" @focus="handleShowOption" />
     </div>
     <div
       class="bg-brand-white shadow-2xl rounded-lg absolute z-10 h-32 w-full"
       v-show="showOptions"
     >
-      <div v-if="options.length < 1" class="w-full h-full flex items-center justify-center">
+      <div v-if="optionsArray.length < 1" class="w-full h-full flex items-center justify-center">
         <p class="text-center text-gray-400">No more data</p>
       </div>
       <div class="w-full h-full py-2 flex flex-col overflow-y-auto">
         <div
           role="button"
           class="px-6 py-2 capitalize cursor-pointer text-sm hover:bg-brand-cancel"
-          v-for="option in options"
+          v-for="option in optionsArray"
           :key="option.id"
           @click="handleSelected(option.id)"
         >{{option.desc}}</div>
@@ -41,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import TinyMenuClose from "@/assets/svg/TinyMenuClose.vue";
 
 interface OptionProps {
@@ -52,19 +56,13 @@ interface OptionProps {
 export default defineComponent({
   components: { TinyMenuClose },
   props: {
-    title: String
+    title: String,
+    options: Array as PropType<Array<OptionProps>>
   },
   data() {
     return {
       isError: false,
-      options: [
-        { id: 1, desc: "item code" },
-        { id: 2, desc: "item description" },
-        { id: 3, desc: "quantity" },
-        { id: 4, desc: "UOM" },
-        { id: 5, desc: "warehouse no" },
-        { id: 6, desc: "bin no" }
-      ],
+      optionsArray: [] as OptionProps[],
       selected: [] as OptionProps[],
       showOptions: false
     };
@@ -72,8 +70,12 @@ export default defineComponent({
 
   methods: {
     handleSelected(id: number) {
-      let selectItem = this.options.find(option => option.id == id);
-      this.options = this.options.filter(option => option.id !== id);
+      let selectItem = this.optionsArray.find(
+        (option: OptionProps) => option.id == id
+      );
+      this.optionsArray = this.optionsArray.filter(
+        (option: OptionProps) => option.id !== id
+      );
       if (this.selected.includes(selectItem!)) {
         return;
       }
@@ -81,28 +83,26 @@ export default defineComponent({
     },
 
     handleShowOption(e: Event) {
-      console.log(e)
+      console.log(e);
       const target = e.target as HTMLDivElement;
-      this.showOptions = !this.showOptions;
-      target.classList.add(
-        this.showOptions ? "border-brand-blue-hover border-2" : ""
-      );
+      this.showOptions = true;
+      target.classList.add(this.showOptions ? "border-2" : "");
     },
 
     removeSelected(id: number) {
       let selectedItem = this.selected.find(option => option.id == id);
       this.selected = this.selected.filter(option => option.id !== id);
-      this.options = [...this.options, selectedItem!];
+      this.optionsArray = [...this.optionsArray, selectedItem!];
     },
 
-    // onClose(e: Event) {
-    //   const target = e.target as HTMLDivElement;
-    //     console.log(123);
-    //   if (target.classList.contains("close-drop")) {
-    //     this.showOptions = true;
-        
-    //   }
-    // }
+    handleFocusOut(e: Event) {
+      this.showOptions = false;
+      this.$emit('selectedPicked', this.selected);
+    }
+  },
+
+  mounted(){
+    this.optionsArray = this.options!;
   }
 });
 </script>

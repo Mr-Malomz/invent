@@ -1,17 +1,10 @@
 <template>
   <layout>
-    <h1 class="text-xl font-bold text-brand-black capitalize mb-7">
-      add new stock
-    </h1>
+    <h1 class="text-xl font-bold text-brand-black capitalize mb-7">add new stock</h1>
     <section class="mt-14 flex justify-center items-center">
       <div class="card-wrap p-7 bg-brand-white rounded-lg w-11/12">
-        <form action="" @submit.prevent="handleSubmit">
-          <input-field
-            title="item description"
-            type="text"
-            :length="2"
-            v-model="item"
-          />
+        <form action @submit.prevent="handleSubmit">
+          <input-field title="item description" type="text" :length="2" v-model="item" />
           <input-field title="quantity" type="number" v-model="quantity" />
           <select-input
             :options="[
@@ -64,7 +57,6 @@
               }
             "
           />
-          <custom-select title="permissions"/>
           <Button value="Add new stock" />
         </form>
       </div>
@@ -74,20 +66,19 @@
 
 <script lang="ts">
 import Button from "@/components/Button.vue";
-import CustomSelect from "@/components/CustomSelect.vue";
 import InputField from "@/components/Input.vue";
 import Layout from "@/components/Layout.vue";
 import SelectInput from "@/components/SelectInput.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  components: { Layout, InputField, Button, SelectInput, CustomSelect },
+  components: { Layout, InputField, Button, SelectInput },
   data: () => ({
     item: "",
     quantity: "",
     unit_of_m: "",
     warehouse: "",
-    bin: "",
+    bin: ""
   }),
   methods: {
     handleSubmit() {
@@ -96,8 +87,8 @@ export default defineComponent({
 
     onSelect(selected: number) {
       console.log(selected);
-    },
-  },
+    }
+  }
 });
 </script>
 
