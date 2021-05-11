@@ -108,6 +108,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'ManageUser',
 		component: () => import('../views/auth/ManageUser.vue'),
 	},
+	{
+		path: '/auth/settings/profile',
+		name: 'SettingsProfile',
+		component: () => import('../views/auth/SettingsProfile.vue'),
+	},
 ];
 
 const router = createRouter({
