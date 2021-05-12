@@ -113,6 +113,16 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'SettingsProfile',
 		component: () => import('../views/auth/SettingsProfile.vue'),
 	},
+	{
+		path: '/auth/settings/password',
+		name: 'SettingsPassword',
+		component: () => import('../views/auth/SettingsPassword.vue'),
+	},
+	{
+		path: '/auth/settings/authorizer',
+		name: 'SettingsAuthorizer',
+		component: () => import('../views/auth/SettingsAuthorizer.vue'),
+	},
 ];
 
 const router = createRouter({

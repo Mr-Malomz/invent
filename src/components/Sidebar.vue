@@ -18,7 +18,7 @@
       </router-link>
       <router-link
         :active-class="
-					$route.path === '/auth/stock' ||
+					$route.path.includes('stock') ||
 					$route.path === '/auth/add-stock'
 						? 'active-nav svg-focus'
 						: ''
@@ -54,8 +54,8 @@
         <span class="font-semibold capitalize text-sm">users</span>
       </router-link>
       <router-link
-        active-class="active-nav svg-focus"
-        to="/auth/settings"
+        :active-class="$route.path.includes('settings') ? 'active-nav  svg-stroke' : ''"
+        to="/auth/settings/profile"
         class="flex items-center py-2 mb-2 pl-4 rounded-lg lg:mb-6 text-brand-grey hover:bg-brand-bg"
       >
         <settings-icon class="mr-4" />
@@ -125,6 +125,7 @@ export default defineComponent({
 }
 
 .svg-stroke {
+  color: #fdfdff;
   :deep svg {
     path {
       stroke: #fdfdff;

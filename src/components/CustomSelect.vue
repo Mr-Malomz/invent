@@ -47,11 +47,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import TinyMenuClose from "@/assets/svg/TinyMenuClose.vue";
-
-interface OptionProps {
-  id: number;
-  desc: string;
-}
+import { OptionProps } from "../models/optionsItem";
 
 export default defineComponent({
   components: { TinyMenuClose },
@@ -84,7 +80,6 @@ export default defineComponent({
     },
 
     handleShowOption(e: Event) {
-      console.log(e);
       const target = e.target as HTMLDivElement;
       this.showOptions = this.disabled ? false : true;
       target.classList.add(this.showOptions ? "border-2" : "");

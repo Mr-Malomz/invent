@@ -38,11 +38,7 @@ import CustomSelect from "@/components/CustomSelect.vue";
 import InputField from "@/components/Input.vue";
 import Layout from "@/components/Layout.vue";
 import { defineComponent } from "vue";
-
-interface OptionProps {
-  id: number;
-  desc: string;
-}
+import { OptionProps } from "../../models/optionsItem";
 
 export default defineComponent({
   components: { Layout, InputField, Button, CustomSelect },

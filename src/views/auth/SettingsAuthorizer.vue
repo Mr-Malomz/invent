@@ -36,49 +36,23 @@
       </ul>
       <div class="card-wrap w-full bg-brand-white">
         <div class="p-5 lg:p-10 w-full h-full">
-          <form>
-            <div class="flex justify-center flex-col items-center mb-8">
-              <img
-                :src="file ? file : 'https://via.placeholder.com/150'"
-                alt="profile"
-                class="rounded-full h-32 w-32 mb-4 border-2 border-brand-blue"
-              />
-              <button class="h-8 w-56 upload" type="button">
-                <label
-                  for="imageUpload"
-                  class="flex justify-center items-center border border-brand-grey w-56 h-8 rounded-t-lg rounded-br-lg capitalize"
-                >
-                  <span class="text-sm">change profile picture</span>
-                  <input
-                    type="file"
-                    id="imageUpload"
-                    name="file"
-                    accept="image/*"
-                    @change="handleImageChange"
-                  />
-                </label>
-              </button>
-            </div>
-            <div class="grid gird-col-1 lg:grid-cols-2 gap-x-8">
-              <input-field title="firstname" type="text" v-model="firstname" />
-              <input-field title="lastname" type="text" v-model="lastname" />
-              <input-field title="phone number" type="number" v-model="phonenumber" />
-              <input-field title="email" type="email" v-model="email" disabled />
-            </div>
-            <fieldset>
-              <label class="block mb-1 text-sm font-normal capitalize">address</label>
-              <textarea
-                :class="isError ? 'border-red-500' : 'border-brand-grey '"
-                class="border w-full mb-7 h-28 px-4 rounded focus:border-brand-blue"
-                v-model="address"
-                @keyup="onKeyUp"
-              ></textarea>
-            </fieldset>
-            <div class="flex justify-center items-center">
-              <div class="w-full lg:w-96">
-                <Button value="Update Profile" />
-              </div>
-            </div>
+          <form class="w-full lg:w-1/2" @submit.prevent="handleSubmit">
+            <p
+              class="font-bold text-brand-black text-sm capitalize mb-7"
+            >Select user(s) that can authorize item requests</p>
+             <custom-select
+            title="permissions"
+            :options="[
+              { id: 1, desc: 'item code' },
+              { id: 2, desc: 'item description' },
+              { id: 3, desc: 'quantity' },
+              { id: 4, desc: 'UOM' },
+              { id: 5, desc: 'warehouse no' },
+              { id: 6, desc: 'bin no' },
+            ]"
+            @selectedPicked="getSelectedValue"
+          />
+            <Button value="Save" />
           </form>
         </div>
       </div>
@@ -88,32 +62,27 @@
 
 <script lang="ts">
 import Button from "@/components/Button.vue";
-import InputField from "@/components/Input.vue";
+import CustomSelect from "@/components/CustomSelect.vue";
 import Layout from "@/components/Layout.vue";
 import { defineComponent } from "vue";
+import { OptionProps } from "../../models/optionsItem";
 
 export default defineComponent({
   components: {
     Layout,
     Button,
-    InputField
+    CustomSelect,
   },
   data: () => ({
-    firstname: "",
-    lastname: "",
-    phonenumber: "",
-    email: "",
-    address: "",
-    file: ""
+    users: [] as OptionProps[]
   }),
   methods: {
     handleSubmit() {
       console.log(this.$data);
     },
 
-    handleImageChange(e: Event) {
-      const target = e.target as HTMLInputElement;
-      this.file = URL.createObjectURL(target.files![0]);
+    getSelectedValue(selected: OptionProps[]) {
+      this.users = selected;
     }
   }
 });

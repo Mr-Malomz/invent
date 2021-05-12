@@ -44,11 +44,7 @@ import Layout from "@/components/Layout.vue";
 import OutlineLink from "@/components/OutlineLink.vue";
 import TertiaryButton from "@/components/TertiaryButton.vue";
 import { defineComponent } from "vue";
-
-interface OptionProps {
-  id: number;
-  desc: string;
-}
+import { OptionProps } from "../../models/optionsItem";
 
 export default defineComponent({
   components: { Layout, InputField, Button, CustomSelect, OutlineLink, TertiaryButton },
