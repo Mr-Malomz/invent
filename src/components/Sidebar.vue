@@ -128,6 +128,7 @@ export default defineComponent({
 
 .svg-stroke {
   color: #fdfdff;
+
   :deep svg {
     path {
       stroke: #fdfdff;
